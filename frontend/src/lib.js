@@ -1,0 +1,12 @@
+export const level=s=>s>=80?'Critical':s>=60?'High':s>=35?'Medium':'Low';
+export const recommend=s=>s>=65?'ESCALATE':s>=35?'MONITOR':'IGNORE';
+export const LV={Low:'text-ok bg-ok/10 border-ok/30',Medium:'text-amber-400 bg-amber-400/10 border-amber-400/30',High:'text-warn bg-warn/10 border-warn/30',Critical:'text-bad bg-bad/10 border-bad/30'};
+export const STRIPE={Low:'border-l-ok',Medium:'border-l-amber-400',High:'border-l-warn',Critical:'border-l-bad'};
+export const STATUSES=['Pending','Under Investigation','Reviewed','Escalated'];
+export const ST={Pending:'text-slate-400','Under Investigation':'text-info',Reviewed:'text-ok',Escalated:'text-bad'};
+export const REC={IGNORE:'text-ok bg-ok/10 border-ok/30',MONITOR:'text-info bg-info/10 border-info/30',ESCALATE:'text-bad bg-bad/10 border-bad/30'};
+export const fmt=t=>new Date(t).toLocaleString([], {dateStyle:'medium',timeStyle:'short'});
+export const top=(shap,n=3)=>[...shap].sort((a,b)=>Math.abs(b.value)-Math.abs(a.value)).slice(0,n);
+export const explain=(shap,pred)=>{const t=top(shap,3).map(s=>`${s.feature} (${s.value>0?'+':''}${s.value.toFixed(2)})`).join(', ');
+ return `Sample explanation: the largest contributions came from ${t}. Positive values push toward a malicious classification; negative values push toward benign. Predicted: ${pred}.`;};
+export const factors=a=>top(a.shap,3).map(s=>`${s.feature} ${s.value>0?'raised':'lowered'} risk`);

@@ -1,0 +1,8 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-bg text-slate-300 font-sans antialiased;background-image:radial-gradient(ellipse 60% 40% at 90% 0,rgba(34,211,238,.10),transparent),linear-gradient(rgba(148,163,184,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.04) 1px,transparent 1px);background-size:auto,32px 32px,32px 32px;background-attachment:fixed}
+h1,h2,h3{@apply font-display tracking-tight}
+.card{@apply rounded-2xl border border-line p-4 sm:p-5;background:linear-gradient(160deg,rgba(18,31,54,.9),rgba(10,18,33,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 8px 24px -12px rgba(0,0,0,.6)}
+.inp{@apply w-full rounded-lg border border-line bg-bg/70 px-3 py-2 text-sm outline-none transition-colors focus:border-cy focus:ring-1 focus:ring-cy/40}
+.btn{@apply rounded-lg px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-cy active:scale-[.98]}
+.sweep{animation:spin 6s linear infinite;transform-origin:50% 50%}@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.sweep{animation:none}}
